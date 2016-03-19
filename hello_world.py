@@ -60,7 +60,7 @@ def get_audio():
                     print("Watson thinks You said: \n {}".format(sentence).encode("utf-8"))
                 else: # this version of Python uses unicode for strings (Python 3+)
                     total_text += str(sentence)
-                    print("Watson thinks You said: \n {}".format(sentence))
+                    print("We think you said: \n {}".format(sentence))
 
             except sr.UnknownValueError:
                 print("Oops! Didn't catch that")
