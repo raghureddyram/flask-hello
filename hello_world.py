@@ -37,8 +37,8 @@ def get_audio():
     m = sr.Microphone()
     total_text = ""
     try:
-        NLP_USERNAME =  app.config["NLP_USERNAME"] # NLP Speech to Text usernames are strings of the form XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-        NLP_PASSWORD =  app.config["NLP_PASSWORD"] # NLP Speech to Text passwords are mixed-case alphanumeric strings
+        NLP_USERNAME =  app.config["NLP_USERNAME"]
+        NLP_PASSWORD =  app.config["NLP_PASSWORD"]
 
         print("A moment of silence, please...")
         with m as source: r.adjust_for_ambient_noise(source)
@@ -56,7 +56,7 @@ def get_audio():
 
                 if str is bytes: # this version of Python uses bytes for strings (Python 2)
                     print("string in bytes")
-                    total_text += (str(sentence) + "\n")
+                    total_text += (str(sentence) + "\n") ## why is python2 running by default, even though i'm running app with python3 hello_world?
                     print("Watson thinks You said: \n {}".format(sentence).encode("utf-8"))
                 else: # this version of Python uses unicode for strings (Python 3+)
                     total_text += str(sentence)
